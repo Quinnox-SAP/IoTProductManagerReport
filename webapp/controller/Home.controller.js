@@ -14,7 +14,7 @@ sap.ui.define([
 
 		},
 		onRegionReportPress: function () {
-			//this.getOwnerComponent().getRouter().navTo("Tile");
+
 			this.getOwnerComponent().getRouter().navTo("CustomerMap");
 		},
 		onPredictiveReportPress: function () {
