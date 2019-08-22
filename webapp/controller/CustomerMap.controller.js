@@ -11,6 +11,7 @@ sap.ui.define([
 		 * @memberOf com.ProductManager.view.CustomerMap
 		 */
 		onInit: function () {
+			//comment by mohana
 			this.getView().addEventDelegate({
 				onBeforeShow: jQuery.proxy(function (evt) {
 					this.onBeforeShow(evt);
