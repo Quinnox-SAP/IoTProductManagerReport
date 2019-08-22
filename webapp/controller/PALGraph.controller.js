@@ -15,6 +15,7 @@ sap.ui.define([
 		 * @memberOf com.ProductManager.view.PALGraph
 		 */
 		onInit: function () {
+			//comment by mohana
 			this.actualData();
 			this.predictedData();
 			this.actualDataTDS();
