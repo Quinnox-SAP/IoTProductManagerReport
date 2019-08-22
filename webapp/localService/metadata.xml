@@ -1,0 +1,36 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
+			Namespace="QNXPAL.db">
+			<EntityType Name="IoTType">
+				<Key>
+					<PropertyRef Name="id"/>
+				</Key>
+				<Property Name="id" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="date" Type="Edm.DateTime"/>
+				<Property Name="pHInput" Type="Edm.Double"/>
+				<Property Name="pHOutput" Type="Edm.Double"/>
+				<Property Name="TDSInput" Type="Edm.Double"/>
+				<Property Name="TDSOutput" Type="Edm.Double"/>
+				<Property Name="WaterConsumption" Type="Edm.Double"/>
+			</EntityType>
+			<EntityType Name="ForecastType">
+				<Key>
+					<PropertyRef Name="id"/>
+				</Key>
+				<Property Name="id" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="value" Type="Edm.Double"/>
+				<Property Name="pHInput" Type="Edm.Double"/>
+				<Property Name="pHOutput" Type="Edm.Double"/>
+				<Property Name="TDSInput" Type="Edm.Double"/>
+				<Property Name="TDSOutput" Type="Edm.Double"/>
+				<Property Name="WaterConsumption" Type="Edm.Double"/>
+			</EntityType>
+			<EntityContainer Name="v2" m:IsDefaultEntityContainer="true">
+				<EntitySet Name="IoT" EntityType="QNXPAL.db.IoTType"/>
+				<EntitySet Name="Forecast" EntityType="QNXPAL.db.ForecastType"/>
+			</EntityContainer>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

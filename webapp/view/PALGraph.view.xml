@@ -1,0 +1,213 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ProductManager.controller.PALGraph"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:layout="sap.ui.layout" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:viz="sap.viz.ui5.controls" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:tnt="sap.tnt">
+	<Page title="Predictive Analysis">
+		<content>
+			<f:Form>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+						emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement>
+								<f:fields>
+									<tnt:InfoLabel text="pH = 10" renderMode="Narrow" colorScheme="3" displayOnly="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement>
+								<f:fields>
+									<tnt:InfoLabel text="TDS = 350" renderMode="Narrow" colorScheme="8" displayOnly="true"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement>
+								<f:fields>
+									<tnt:InfoLabel text="Water Consumption = 80l" renderMode="Narrow" colorScheme="6" displayOnly="true"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<l:Grid id="g1" defaultSpan="L6 M6 S6">
+				<l:content>
+					<viz:VizFrame id="vizFrameActual" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='line'>
+						<!--<viz:layoutData>-->
+						<!--	<l:GridData span="L6 M12 S12"></l:GridData>-->
+						<!--</viz:layoutData>-->
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{oXSOActualDataModel>/results}">
+								<viz.data:dimensions>
+									<!--{path : 'tableModel>CalendarDate',formatter: '.formatter.removetime'}-->
+									<!--{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}-->
+									<!--dataType="date"-->
+									<!--{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}-->
+									<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}"/>
+									<!--<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date'}"/>-->
+									<!--<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date', type : 'sap.ui.model.type.Date',-->
+									<!--formatOptions:{-->
+									<!--        style: 'short',-->
+									<!--        source: {-->
+									<!--        pattern : 'yyyy-MM-ddTHH:mm:ss'-->
+									<!--        }-->
+									<!--}-->
+									<!--}"/>-->
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="pHOutput" value="{oXSOActualDataModel>pHInput}"/>
+									<!--<viz.data:MeasureDefinition name="TDSOutput" value="{oXSOActualDataModel>TDSInput}"/>-->
+									<!--<viz.data:MeasureDefinition name="WaterConsumption" value="{ColumnChartData>WaterConsumption}"/>-->
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="pHOutput"/>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="TDSOutput"/>-->
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="WaterConsumption"/>-->
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="date"/>
+						</viz:feeds>
+					</viz:VizFrame>
+					<!--	</items>-->
+					<!--</FlexBox>-->
+					<!--<FlexBox height="50px" alignItems="End" justifyContent="End">-->
+					<!--	<items>-->
+					<viz:VizFrame id="vizFramePredicted" title="Column Chart" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='line'>
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{oXSODataModel>/results}">
+								<viz.data:dimensions>
+									<!--{oXSODataModel>id}-->
+									<viz.data:DimensionDefinition name="10 Days" value="{path : 'oXSODataModel>id',formatter:'.formatter.setNewDate'}"/>
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="pHOutput" value="{oXSODataModel>pHInput}"/>
+									<!--<viz.data:MeasureDefinition name="TDSOutput" value="{oXSODataModel>TDSInput}"/>-->
+									<!--<viz.data:MeasureDefinition name="WaterConsumption" value="{oXSODataModel>WaterConsumption}"/>-->
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="pHOutput"/>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="TDSOutput"/>-->
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="WaterConsumption"/>-->
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="10 Days"/>
+						</viz:feeds>
+					</viz:VizFrame>
+					<viz:VizFrame id="vizFrameActualTDS" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='line'>
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{oXSOActualDataModel>/results}">
+								<viz.data:dimensions>
+									<!--{path : 'tableModel>CalendarDate',formatter: '.formatter.removetime'}-->
+									<!--{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}-->
+									<!--<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date'}"/>-->
+									<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}"/>
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<!--<viz.data:MeasureDefinition name="pHOutput" value="{oXSOActualDataModel>pHInput}"/>-->
+									<viz.data:MeasureDefinition name="TDSOutput" value="{oXSOActualDataModel>TDSInput}"/>
+									<!--<viz.data:MeasureDefinition name="WaterConsumption" value="{ColumnChartData>WaterConsumption}"/>-->
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="pHOutput"/>-->
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="TDSOutput"/>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="WaterConsumption"/>-->
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="date"/>
+						</viz:feeds>
+					</viz:VizFrame>
+					<!--	</items>-->
+					<!--</FlexBox>-->
+					<!--<FlexBox height="50px" alignItems="End" justifyContent="End">-->
+					<!--	<items>-->
+					<viz:VizFrame id="vizFramePredictedTDS" title="Column Chart" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='line'>
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{oXSODataModel>/results}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="10 Days" value="{path : 'oXSODataModel>id',formatter:'.formatter.setNewDate'}"/>
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<!--<viz.data:MeasureDefinition name="pHOutput" value="{oXSODataModel>pHInput}"/>-->
+									<viz.data:MeasureDefinition name="TDSOutput" value="{oXSODataModel>TDSInput}"/>
+									<!--<viz.data:MeasureDefinition name="WaterConsumption" value="{oXSODataModel>WaterConsumption}"/>-->
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="pHOutput"/>-->
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="TDSOutput"/>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="WaterConsumption"/>-->
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="10 Days"/>
+						</viz:feeds>
+					</viz:VizFrame>
+					<viz:VizFrame id="vizFrameActualWC" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='line'>
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{oXSOActualDataModel>/results}">
+								<viz.data:dimensions>
+									<!--{path : 'tableModel>CalendarDate',formatter: '.formatter.removetime'}-->
+									<!--{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}-->
+									<!--<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date'}"/>-->
+									<viz.data:DimensionDefinition name="date" value="{path : 'oXSOActualDataModel>date',formatter:'.formatter.setDate'}"/>
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<!--<viz.data:MeasureDefinition name="pHOutput" value="{oXSOActualDataModel>pHInput}"/>-->
+									<!--<viz.data:MeasureDefinition name="TDSOutput" value="{oXSOActualDataModel>TDSInput}"/>-->
+									<viz.data:MeasureDefinition name="WaterConsumption" value="{oXSOActualDataModel>WaterConsumption}"/>
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="pHOutput"/>-->
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="TDSOutput"/>-->
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="WaterConsumption"/>
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="date"/>
+						</viz:feeds>
+					</viz:VizFrame>
+					<viz:VizFrame id="vizFramePredictedWC" title="Column Chart" uiConfig="{applicationSet:'fiori'}" height='20rem' width="100%" vizType='line'>
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{oXSODataModel>/results}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="10 Days" value="{path : 'oXSODataModel>id',formatter:'.formatter.setNewDate'}"/>
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<!--<viz.data:MeasureDefinition name="pHOutput" value="{oXSODataModel>pHInput}"/>-->
+									<!--<viz.data:MeasureDefinition name="TDSOutput" value="{oXSODataModel>TDSInput}"/>-->
+									<viz.data:MeasureDefinition name="WaterConsumption" value="{oXSODataModel>WaterConsumption}"/>
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="pHOutput"/>-->
+							<!--<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="TDSOutput"/>-->
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure" values="WaterConsumption"/>
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="10 Days"/>
+						</viz:feeds>
+					</viz:VizFrame>
+					<!--</layout:Grid>-->
+					<!--		</VBox>-->
+					<!--	</layout:flexContent>-->
+					<!--</layout:FixFlex>-->
+					<!--		</items>-->
+					<!--</FlexBox>-->
+					<!--</l:HorizontalLayout>-->
+					<!--	</items>-->
+					<!--</FlexBox>-->
+					<!--	</items>-->
+					<!--</HBox>-->
+					<!--<f:SimpleForm columnsL="5" columnsM="5" editable="false" emptySpanL="1" emptySpanM="1" labelSpanL="4" labelSpanM="4"-->
+					<!--	layout="ResponsiveGridLayout" maxContainerCols="2" minWidth="500">-->
+					<!--	<f:content>-->
+					<!--		<Button text="TestMe" press="onPress" width="150px"></Button>-->
+					<!--		<Label text="Number of days to be predicted"></Label>-->
+					<!--		<Select id="idPredictDay" forceSelection="true" maxWidth="55%" change="predict">-->
+					<!--			<core:ListItem text="Next 1 week"/>-->
+					<!--			<core:ListItem text="Next 2 weeks"/>-->
+					<!--<core:ListItem text="Next 4 weeks"/>-->
+					<!--		</Select>-->
+					<!--	</f:content>-->
+					<!--</f:SimpleForm>-->
+				</l:content>
+			</l:Grid>
+		</content>
+	</Page>
+</mvc:View>

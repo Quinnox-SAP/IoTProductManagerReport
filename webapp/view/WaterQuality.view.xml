@@ -1,0 +1,146 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ProductManager.controller.WaterQuality"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Average TDS and PH Report">
+		<content>
+			<VBox>
+				<Label text="Region" class="sapUiTinyMargin" required="true" design="Bold"></Label>
+				<Input width="25%" maxLength="20"></Input>
+				<Label text="Time Period in Days" class="sapUiTinyMargin" required="true" design="Bold"></Label>
+				<Input width="25%" submit="onSubmit" maxLength="20"></Input>
+				<Button text="Submit" press="onSubmit" type="Emphasized"></Button>
+			</VBox>
+			<Table visible="false" id="table1" mode="SingleSelectLeft" selectionChange="onRowSelect">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<content>
+							<OverflowToolbarButton icon="sap-icon://sort"></OverflowToolbarButton>
+							<OverflowToolbarButton icon="sap-icon://filter"></OverflowToolbarButton>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Text text="Region"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="City"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Zipcode"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="No. Of Devices"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Average TDS"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Average pH"></Text>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="IL"></Text>
+							<Text text="Chicago"></Text>
+							<Text text="60611"></Text>
+							<Text text="5"></Text>
+							<Text text="84"></Text>
+							<Text text="7.06"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="IL"></Text>
+							<Text text="Naperville"></Text>
+							<Text text="60540"></Text>
+							<Text text="10"></Text>
+							<Text text="90"></Text>
+							<Text text="7.2"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Table visible="false" id="table2">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer></ToolbarSpacer>
+							<OverflowToolbarButton icon="sap-icon://sort"></OverflowToolbarButton>
+							<OverflowToolbarButton icon="sap-icon://filter"></OverflowToolbarButton>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Text text="Customer"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Customer Name"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Device Name/Model"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Average TDS"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Average pH"></Text>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="100"></Text>
+							<Text text="Anil"></Text>
+							<Text text="Model1"></Text>
+							<Text text="85"></Text>
+							<Text text="7"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="101"></Text>
+							<Text text="rumi"></Text>
+							<Text text="Model3"></Text>
+							<Text text="90"></Text>
+							<Text text="6.8"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="102"></Text>
+							<Text text="RP"></Text>
+							<Text text="Model2"></Text>
+							<Text text="70"></Text>
+							<Text text="7.5"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

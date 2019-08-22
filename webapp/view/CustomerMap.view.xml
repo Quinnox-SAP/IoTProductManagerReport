@@ -1,0 +1,8 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ProductManager.controller.CustomerMap"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Customer Location">
+		<content>
+			<HBox id="googleMap" height="100%" width="100%"></HBox>
+		</content>
+	</Page>
+</mvc:View>

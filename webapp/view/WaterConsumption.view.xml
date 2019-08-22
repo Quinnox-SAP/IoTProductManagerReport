@@ -1,0 +1,132 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ProductManager.controller.WaterConsumption"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:layout="sap.ui.layout">
+	<Page title="Water Consumption Report">
+		<content>
+			<VBox>
+				<Label text="Region" class="sapUiTinyMargin" design="Bold" required="true"></Label>
+				<Input width="25%" maxLength="25"></Input>
+				<Label text="Time Period in Days" class="sapUiTinyMargin" design="Bold" required="true"></Label>
+				<Input width="25%" maxLength="25" submit="onSubmit"></Input>
+				<Button text="Submit" press="onSubmit" type="Emphasized"></Button>
+			</VBox>
+			<Table visible="false" id="table1" mode="SingleSelectLeft" selectionChange="onRowSelect">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<content>
+							<OverflowToolbarButton icon="sap-icon://sort"></OverflowToolbarButton>
+							<OverflowToolbarButton icon="sap-icon://filter"></OverflowToolbarButton>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<!--<Text text="Region"></Text>-->
+							<Label text="Region" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="City" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Zipcode" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="No. Of Devices" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Average Water Consumption in Litres/Day" design="Bold"></Label>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="IL"></Text>
+							<Text text="Chicago"></Text>
+							<Text text="60611"></Text>
+							<Text text="5"></Text>
+							<Text text="5"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="IL"></Text>
+							<Text text="Naperville"></Text>
+							<Text text="60540"></Text>
+							<Text text="10"></Text>
+							<Text text="2"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Table visible="false" id="table2">
+				<headerToolbar>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer></ToolbarSpacer>
+							<OverflowToolbarButton icon="sap-icon://sort"></OverflowToolbarButton>
+							<OverflowToolbarButton icon="sap-icon://filter"></OverflowToolbarButton>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Label text="Customer" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Customer Name" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Device Name/Model" design="Bold"></Label>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Label text="Average Water Consumption in Litres/Day" design="Bold"></Label>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="100"></Text>
+							<Text text="Anil"></Text>
+							<Text text="Model1"></Text>
+							<Text text="5"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="101"></Text>
+							<Text text="Rumi"></Text>
+							<Text text="Model3"></Text>
+							<Text text="6"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="102"></Text>
+							<Text text="RP"></Text>
+							<Text text="Model2"></Text>
+							<Text text="4"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>

@@ -1,0 +1,135 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.ProductManager.controller.IoTDeviceStatus"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="IoT Device Status Report">
+		<content>
+			<VBox>
+				<Label text="Region" class="sapUiTinyMargin" design="Bold" required="true"></Label>
+				<Input width="25%" maxLength="25"></Input>
+				<Label text="Time Period in Days" class="sapUiTinyMargin" design="Bold" required="true"></Label>
+				<Input width="25%" maxLength="25" submit="onSubmit"></Input>
+				<Button text="Submit" press="onSubmit" type="Emphasized"></Button>
+			</VBox>
+			<Table id="table1" visible="false" mode="SingleSelectLeft" selectionChange="onRowSelect">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<content>
+							<OverflowToolbarButton icon="sap-icon://sort"></OverflowToolbarButton>
+							<OverflowToolbarButton icon="sap-icon://filter"></OverflowToolbarButton>
+						</content>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Text text="Region"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="City"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Zipcode"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Number of Devices"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Number of Devices at Fault"></Text>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="IL"></Text>
+							<Text text="Chicago"></Text>
+							<Text text="60611"></Text>
+							<Text text="5"></Text>
+							<Text text="2"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="IL"></Text>
+							<Text text="Naperville"></Text>
+							<Text text="60540"></Text>
+							<Text text="10"></Text>
+							<Text text="3"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			<Table id="table2" visible="false" selectionChange="onrowSelect">
+				<headerToolbar>
+					<OverflowToolbar>
+						<ToolbarSpacer></ToolbarSpacer>
+						<OverflowToolbarButton icon="sap-icon://sort"></OverflowToolbarButton>
+						<OverflowToolbarButton icon="sap-icon://filter"></OverflowToolbarButton>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column>
+						<header>
+							<Text text="Customer"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Customer Name"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Fault Device Name"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Customer Address"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Status"></Text>
+						</header>
+					</Column>
+					<Column>
+						<header>
+							<Text text="Concerned Technician"></Text>
+						</header>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="100"></Text>
+							<Text text="Vinay Kumar"></Text>
+							<Text text="Model1"></Text>
+							<Text text="Chicago,IL,USE"></Text>
+							<Text text="Inactive"></Text>
+							<Text text="Andrews"></Text>
+						</cells>
+					</ColumnListItem>
+					<ColumnListItem>
+						<cells>
+							<Text text="101"></Text>
+							<Text text="Rahul Sharma"></Text>
+							<Text text="Model3"></Text>
+							<Text text="Chicago,IL,USA"></Text>
+							<Text text="Inactive"></Text>
+							<Text text="Eric"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</mvc:View>
