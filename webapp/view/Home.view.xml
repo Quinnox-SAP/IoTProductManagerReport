@@ -2,7 +2,7 @@
 	xmlns:html="http://www.w3.org/1999/xhtml">
 	<Page title="Product Manager Dashboard">
 		<content>
-			<GenericTile header="Region-Wise Report" press="onRegionReportPress" class="sapUiTinyMargin"></GenericTile>
+			<GenericTile header="Device Location Report" press="onRegionReportPress" class="sapUiTinyMargin"></GenericTile>
 			<GenericTile header="Predictive Analysis Report" class="sapUiTinyMargin" press="onPredictiveReportPress"></GenericTile>
 		</content>
 	</Page>
