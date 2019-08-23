@@ -21,7 +21,7 @@ sap.ui.define([
 
 		onBeforeShow: function () {
 			var me = this;
-			this.loadGoogleMaps("https://maps.googleapis.com/maps/api/js?key=AIzaSyCukq5lVrp7QlpF2tR-Py8mii1gxqJ4MNM", me.setMapData.bind(me));
+			this.loadGoogleMaps("https://maps.googleapis.com/maps/api/js?key=AIzaSyCSslzS4IPyCAh7viq4UZ4ERCKJTL1kKVc", me.setMapData.bind(me));
 		},
 		// function for loading google mapsAIzaSyCukq5lVrp7QlpF2tR-Py8mii1gxqJ4MNM AIzaSyCukq5lVrp7QlpF2tR-Py8mii1gxqJ4MNM
 		loadGoogleMaps: function (scriptUrl, callbackFn) {
@@ -96,7 +96,7 @@ sap.ui.define([
 					// return (latitude, longitude);
 					var mapProp = {
 						center: myCenter2,
-						zoom: 10,
+						zoom: 5,
 						scrollwheel: true,
 						draggable: true,
 						mapTypeId: google.maps.MapTypeId.ROADMAP
